@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+# this one sums the weights
+
+consfile = open("consolidation-2", "r")
+previousWord = "none"
+previousNum = -100
+sum = 0
+for line in consfile:
+	#print (line)
+	pos = line.index('	')
+	num = line[0:int(pos)]
+	intnum = int(num)
+	word = line[int(pos):-1]
+	
+	if word == previousWord:
+		sum += intnum
+	else:
+		print (word, " ", sum)
+		sum = 0
+	previousWord = word
+
+	#print (word)
+
+consfile.close()
